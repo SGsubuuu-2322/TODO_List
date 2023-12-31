@@ -42,5 +42,21 @@ function addTodo(todo) {
     todosUL.appendChild(todoList);
 
     input.value = "";
+
+    updateLS();
   }
+}
+
+function updateLS() {
+  const todos = [];
+  const todosEls = document.querySelectorAll(".todos li");
+
+  todosEls.forEach((todoEl) => {
+    todos.push({
+      text: todoEl.innerText,
+      completed: todoEl.classList.contains("completed"),
+    });
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
