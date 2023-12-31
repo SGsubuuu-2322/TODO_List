@@ -30,13 +30,15 @@ function addTodo(todo) {
 
     todoList.innerText = todoText;
 
-    todoList.addEventListener("click", () =>
-      todoList.classList.toggle("completed")
-    );
+    todoList.addEventListener("click", () => {
+      todoList.classList.toggle("completed");
+      updateLS();
+    });
     todoList.addEventListener("contextmenu", (e) => {
       e.preventDefault();
 
       todoList.remove();
+      updateLS();
     });
 
     todosUL.appendChild(todoList);
