@@ -24,6 +24,15 @@ function addTodo(todo) {
 
     todoList.innerText = todoText;
 
+    todoList.addEventListener("click", () =>
+      todoList.classList.toggle("completed")
+    );
+    todoList.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+
+      todoList.remove();
+    });
+
     todosUL.appendChild(todoList);
 
     input.value = "";
